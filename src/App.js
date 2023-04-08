@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import AddPost from "./Components/AddPost";
+import Registration from "./Components/Registration";
+import Login from "./Components/Login";
+import Error404 from "./Components/Error404";
+import Logout from "./Components/Logout";
+import "bootstrap/dist/css/bootstrap.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <AddPost />
+        </Route>
+        <Route path="/registration">
+          <Registration />
+        </Route>
+        <Route path="/Logout">
+          <Logout />
+        </Route>
+        <Route path="/Login">
+          <Login />
+        </Route>
+
+        <Route>
+          <Error404 />
+        </Route>
+      </Switch>
+    </>
   );
-}
+};
 
 export default App;
