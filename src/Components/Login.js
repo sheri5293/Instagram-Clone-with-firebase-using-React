@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../Login.css";
 
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -26,7 +26,7 @@ const Login = () => {
       localStorage.setItem("email", email);
       localStorage.setItem("password", password);
       setLoggedIn(true);
-      history.push("/AddPost");
+      navigate("/AddPost");
     }
   };
 
@@ -48,12 +48,12 @@ const Login = () => {
     <>
       <div className="relo">
         <div class="content">
-          <div class="text">Login</div>
+          <div class="text" style={{ color: "rgb(158, 14, 115)" }}>
+            Instagram
+          </div>
           <form onSubmit={handleLogin}>
             <div class="field">
-              <label htmlFor="email" className="hello">
-                Email
-              </label>
+              <label htmlFor="email" className="hello"></label>
               <input
                 type="email"
                 autoComplete="off"
@@ -66,9 +66,7 @@ const Login = () => {
             </div>
 
             <div class="field">
-              <label htmlFor="password" className="hello">
-                password
-              </label>
+              <label htmlFor="password" className="hello"></label>
               <input
                 type="password"
                 autoComplete="off"

@@ -50,7 +50,7 @@ const Navbar = () => {
                 Login
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink
                 exact
                 to="/Logout"
@@ -60,7 +60,7 @@ const Navbar = () => {
               >
                 Logout
               </NavLink>
-            </li>
+            </li> */}
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fa fa-times" : "fa fa-bars"}></i>

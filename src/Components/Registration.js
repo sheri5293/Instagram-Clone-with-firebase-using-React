@@ -1,9 +1,9 @@
 import { React, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../Login.css";
 
 const Registration = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,32 +16,35 @@ const Registration = () => {
     setName("");
     setEmail("");
     setPassword("");
-    history.push("/Login");
+    navigate("/Login");
   };
 
   return (
     <>
       <div className="relo">
         <div className="content">
-          <div className="text">Sign Up</div>
+          <h1 className="text" style={{ color: "rgb(158, 14, 115)" }}>
+            Instagram
+          </h1>
+          <p style={{ color: "rgb(158, 14, 115)" }}>
+            Sign up to see photos and videos from your friends.
+          </p>
+
           <form onSubmit={handleSubmit}>
             <div className="field">
-              <label htmlFor="username" className="hello">
-                Name
-              </label>
+              <label htmlFor="username" className="hello"></label>
+
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                placeholder="Name"
+                placeholder="Username , Phone Number"
               />
             </div>
 
             <div className="field">
-              <label htmlFor="email" className="hello">
-                Email
-              </label>
+              <label htmlFor="email" className="hello"></label>
               <input
                 type="email"
                 value={email}
@@ -52,9 +55,7 @@ const Registration = () => {
             </div>
 
             <div className="field">
-              <label htmlFor="password" className="hello">
-                Password
-              </label>
+              <label htmlFor="password" className="hello"></label>
               <input
                 type="password"
                 value={password}
